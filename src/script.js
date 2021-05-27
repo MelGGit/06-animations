@@ -32,29 +32,24 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height)
 
 // Clock
-const clock = new THREE.Clock()
+// const clock = new THREE.Clock()
 
-// let time = Date.now()
+// Use gsap for moving you move the position of the mesh
+gsap.to(mesh.position, { x: 2, duration: 1, delay: 1 })
+gsap.to(mesh.position, { x: 0, duration: 1, delay: 2 })
 
 // Animations
 // function requestAnimationFrame() is used to call a function on the next frame
 const tick = () => {
-  // One way to animate and not depend on framerate
-  // Time to not depend on framerate of user pc
-  // evaluate this against the previous timestamp to get the delta
-  //   const currentTime = Date.now()
-  //   const deltaTime = currentTime - time
-  //   time = currentTime
-
   // Clock
   // starts at 0 and each second gets increased by 1
   // 0,1,2,3,4
-  const elapsedTime = clock.getElapsedTime()
+  //   const elapsedTime = clock.getElapsedTime()
 
   // Update Objects
-  camera.position.y = Math.sin(elapsedTime)
-  camera.position.x = Math.cos(elapsedTime)
-  camera.lookAt(mesh.position)
+  //   camera.position.y = Math.sin(elapsedTime)
+  //   camera.position.x = Math.cos(elapsedTime)
+  //   camera.lookAt(mesh.position)
 
   // Render after each new update
   renderer.render(scene, camera)
